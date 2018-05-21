@@ -22,5 +22,5 @@ Ctrl + z 를 눌러 프로세스를 정지시키고 shell로 돌아가 bg 를 �
   
   session 과 process 에 대한 추가 설명은 아래의 링크에 있다.
   
-  https://mug896.github.io/bash-shell/session_and_process-group.html
+  https://mug896.github.io/bash-shell/session_and_process-group.html  
   -끝-
