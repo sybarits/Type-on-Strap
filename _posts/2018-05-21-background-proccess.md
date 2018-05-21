@@ -7,12 +7,12 @@ excerpt_separator: <!--more-->
 
 ssh로 접속한 후 터미널을 닫으면 터미널을 통해 실행하던 작업들이 중지되는데...  
   
->> $ nohup ./test.sh &  
+> $ nohup ./test.sh &  
   
 이렇게 nohup 과 & 를 추가하면 된다.  
 이렇게 해도 끊기면  
   
->> $ disown -h  
+> $ disown -h  
   
 명령어를 추가 실행한다.  
   
