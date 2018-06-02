@@ -16,7 +16,7 @@ git commit -am "hohoho"
 ```
 git checkout new-dev
 git cherry-pick 7432f3
-...
+```
   
   
 언제 cherry-pick을 사용할까? 기존의 Pull Request가 머지가 안된 경우 체리픽을 사용하여 현재 브랜치에 반영한뒤 계속해서 필요한 작업을 이어나갈 때. 각각의 브랜치가 master역할을 할 경우 머지를 하지 않고 변경사항 커밋을 가져오고 싶을 때.
