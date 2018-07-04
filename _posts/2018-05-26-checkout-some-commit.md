@@ -23,4 +23,18 @@ git checkout 7432f3
 git checkout master
 ```
 
+파일을 수정 했는데 마지막 커밋으로 돌아가고 싶을 때  
+수정한것 되돌리기
+```
+git checkout [filename]
+```
+특정 폴더 아래의 모든 수정 되돌리기
+```
+git checkout [dir]
+```
+repository 내 모든 수정 되돌리기(root dir 에서)
+```
+git checkout .
+```
+
   -끝-
