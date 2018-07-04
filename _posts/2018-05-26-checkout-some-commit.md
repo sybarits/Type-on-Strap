@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Git 특정 커밋으로 가기
+title: Git 특정 커밋으로 가기, 수정 되돌리기
 tags: [git, checkout, ]
 excerpt_separator: <!--more-->
 ---
@@ -35,6 +35,11 @@ git checkout [dir]
 repository 내 모든 수정 되돌리기(root dir 에서)
 ```
 git checkout .
+```
+
+모든 untracked file 지우기
+```
+git clean -fdx
 ```
 
   -끝-
