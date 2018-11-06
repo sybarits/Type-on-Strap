@@ -1,0 +1,30 @@
+---
+layout: post
+title: UART 
+tags: [uart, serial]
+excerpt_separator: <!--more-->
+---
+
+# UART
+
+UART(A universal asynchronous receiver/transmitter) 는 우리말로 하면 범용 비동기 통신기이다. 일종의 회로이며 보통 마이크로 컨트롤러안에 포함되어있다.  
+여기서 비동기의 의미는 별도의 클럭 시그널이 없이 데이터 시그널만 가지고 통신한다는 의미이다.  
+비동기 통신을 위해서는 데이터가 전달되는 주기에 대한 정보가 미리 정해져야 한다.  
+시리얼 포트라 불리는 RS-232 포트는 실제 통신을 위한 물리적 포트를 의미한다.
+
+UART의 한쪽에는 8개 이상의 라인이 물려있고, 다른 한쪽에는 시리얼 라인 RX,TX 가 물려있다.
+
+
+## Baud Rate (통신 속도)
+
+Baud rate 는 시리얼 라인으로 전송되는 데이터 속도를 말합니다. Bits-per-second (bps) 단위로 표시하는데 이 값을 바탕으로 1 bit가 전송되는데 필요한 시간을 알 수 있습니다.
+즉 1bit 데이터를 전송할 때 시리얼 라인을 high/low 상태로 유지하는 시간이며, 데이터를 받기 위해 시리얼 라인을 체크하는 시간입니다.
+
+Baud rates 값은 어떻게든 설정할 수 있지만 통신 속도에 크게 영향을 받지 않는 경우 일반적으로 9600 bps를 사용합니다. 
+다른 표준 baud are 값으로 1200, 2400, 4800, 19200, 38400, 57600, 115200 을 사용할 수도 있습니다.
+
+  
+  
+  
+출처: http://www.hardcopyworld.com/ngine/aduino/index.php/archives/2080
+-끝-
