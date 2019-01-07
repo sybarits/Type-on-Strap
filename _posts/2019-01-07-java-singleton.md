@@ -14,32 +14,28 @@ singleton
 
 ```java
 public class Singleton {
-private static Singleton singletonObject;
-
-private Singleton() {}
-
-public static Singleton getSingletonObject() {
-if (singletonObject == null) {
-singletonObject = new Singleton();
-}
-return singletonObject;
-}
+	private static Singleton singletonObject;
+	private Singleton() {}
+	public static Singleton getSingletonObject() {
+		if (singletonObject == null) {
+			singletonObject = new Singleton();
+		}
+		return singletonObject;
+	}
 }
 ```
 멀티쓰레드 환경에서 singleton 으로 동작 하지 않는다. 위 코드는 쓰지 말자
 
 ```java
 public class Singleton {
-private static Singleton singletonObject;
-
-private Singleton() {}
-
-public static synchronized Singleton getSingletonObject() {
-if (singletonObject == null) {
-singletonObject = new Singleton();
-}
-return singletonObject;
-}
+	private static Singleton singletonObject;
+	private Singleton() {}
+	public static synchronized Singleton getSingletonObject() {
+		if (singletonObject == null) {
+			singletonObject = new Singleton();
+		}
+		return singletonObject;
+	}
 }
 ```
 함수 앞에 synchronized 키워드를 이용해 멀티쓰레드 환경에서도 singleton 이 보장 되도록 했다.  
@@ -47,13 +43,11 @@ return singletonObject;
 
 ```java
 public class Singleton {
-private static volatile Singleton singletonObject = new Singleton();
-
-private Singleton() {}
-
-public static Singleton getSingletonObject() {
-return singletonObject;
-}
+	private static volatile Singleton singletonObject = new Singleton();
+	private Singleton() {}
+	public static Singleton getSingletonObject() {
+		return singletonObject;
+	}
 }
 ```
 Bill pugh 라는 사람이 제시한 singleton pattern 구현 방법이다. jvm의 class loader 매커니즘과 class load 시점을 이용했다는데 잘 모르겠다.
