@@ -20,7 +20,7 @@ WinMain의 MSDN 설명은 아래와 같다.
 
 
 
-```C++
+```C
 int WINAPI \_tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInst,
                       PTSTR pszCmdLine, int nCmdShow) 
 {
@@ -50,8 +50,6 @@ int WINAPI \_tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInst,
         }
     }
     return msg.wParam;
-
-
 ```
 
 여기서 hInstance 매개변수를 '해당 애플리케이션의 현재 인스턴스에 대한 핸들(A handle to the current instance of the application)' 이라고 정의하고 있다. 인스턴스(Instance)라는 단어 그대로의 의미는 '사례', '경우' 등의 뜻을 갖고 있으며, 어떤 구체적인 사실을 의미한다. 프로그래밍의 관점에서 볼 때 인스턴스는 어떤 하나의 '실체'를 뜻한다고 볼 수 있으며, 이 경우 무엇에 대한 실체인가가 중요하다. 그리고 그 무엇을 규정하는 것이 프로그래밍 언어에서 제공하는 다양한 데이터 타입이 될 것이다. 이 타입에는 C나 C++ 등에서 기본적으로 제공하는 int, double 등의 프리미티브 타입뿐만 아니라 여러분이 정의하는 구조체나 클래스 등도 포함된다. 하지만 이러한 타입은 칸트의 표현을 비리자면 내용없는 공허한 '형식'만 제공할 뿐 그자체로는 아무것도 아니다. 이 공허한 형식이 맹목적이지 않도록 내용을 갖추려면 메모리 상에서 자신의 공간을 확보해야함 하는데, 특정 타입으로 선언된 변수가 프로세스의 가상 주고 공간에 자신의 영역을 확보한 상태가 인스턴스로서의 '실체'가 되는 것이다.  
