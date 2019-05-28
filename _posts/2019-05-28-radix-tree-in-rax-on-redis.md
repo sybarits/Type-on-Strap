@@ -9,6 +9,8 @@ excerpt_separator: <!--more-->
 - Redis 에서 Radix Tree를 이용하여 [Rax](https://github.com/antirez/redis/commit/1409c545da7861912acef4f42c4932f6c23e9937) 라는 프로젝트를 공개하였다.
 - 주석과 코드의 일부를 가져 왔다.
 - 내가 알고있는 Radix Tree와는 다르지만 지금 공부하고 있는 inverted index을 이용한 대용량 데이터 처리 시스템 고민에 많은 도움이 되었다.
+- 리눅스 커널에 구현 되어있는 Radix Tree는 조금 다르다
+- 일단 링크를 남겨놔야겠다. [문c블로그](http://jake.dothome.co.kr/radix-tree/), [LWN](https://lwn.net/Articles/175432/)
 
 ```c
 /* Representation of a radix tree as implemented in this file, that contains
