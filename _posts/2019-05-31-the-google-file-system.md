@@ -10,10 +10,12 @@ excerpt_separator: <!--more-->
 ## The Google File System
 
 1. Introduction  
+  
 Google에서 요구하는 데이터 처리 요수사항을 충족하기 위해 Google File System(GFS)를 설계하고 구현했습다. 성능, 확장성, 안정성, 가용성을 목표한다.
   
+    
 2. Design Overview  
-
+  
 2.1 Assumtion  
 GFS는 다음과 같은 가정을 기반으로 설계한다.
 * 일반적인 IBM호환 부품을 이용한다.
@@ -76,6 +78,7 @@ GFS는 record append라 불리는 원자적 append를 지원한다. 여러 사�
 스냅샷 작업은 파일이나 디렉토리 트리의 복사본을 거의 즉각적으로 만든다. 스냅샷 구현을 위해 표준 copy-on-write기술을 사용한다.
   
 4. MASTER OPERATION  
+  
 마스터는 모든 네임 스페이스 작업, 모든 시스템의 chunk 복제 관리, chunkserver의 로드를 조정등 다양한 활동을 한다.
   
 4.1 Namespace Management and Locking  
@@ -94,6 +97,7 @@ GFS는 정기적으로 삭제된 파일와 chunk 의 삭제 기록을 확인하�
 응용프로그램에서 파일 삭제시 파일은 삭제 시점이 포함된 숨겨진 이름으로 바뀌고 마스터는 정기적으로 namespace를 검색하면서 숨겨진 이름의 파일을 제거한다. namespace에서 제거되면 해당 메타 데이터가 삭제되고 master와 chunkserver가 HeartBeat 통신 시 받은 메타 데이터에 없는 chunk의 복제본을 chunkserver는 삭제 한다.
   
 5. Tault Tolerance and Diagnosis  
+  
 빈번하게 발생하는 장비의 오류를 극복하기 위한 방법에 대해 논한다.
   
 5.1 High Availability  
