@@ -13,6 +13,7 @@ excerpt_separator: <!--more-->
 Google에서 요구하는 데이터 처리 요수사항을 충족하기 위해 Google File System(GFS)를 설계하고 구현했습다. 성능, 확장성, 안정성, 가용성을 목표한다.
   
 2. Design Overview  
+
 2.1 Assumtion  
 GFS는 다음과 같은 가정을 기반으로 설계한다.
 * 일반적인 IBM호환 부품을 이용한다.
@@ -51,7 +52,9 @@ master는 시작시와 주기적으로 chunkserver의 상태정보를 요청하�
 2.7.1 Guarantees by GFS  
 file namespace 변경(예: 파일 생성)은 원자적이다. namespace locking을 통해 구현 된다.
   
+    
 3. SYSTEM INTERACTIONS  
+
 3.1 Leases and Mutation Order  
 Mutation은 chunk의 내용이나 메타 데이터를 추가 하거나 쓰는 작업을 의미한다. 마스터는 클라이언트가 mutation을 요청 할 경우 chunk 중 하나에 Lease를 부여한다. lease의 부여시간은 기본 60이며 시간을 연장하기위해 heartbeat 메시지를 통한다.  
 1.client 가 master에게 mutation 요청
