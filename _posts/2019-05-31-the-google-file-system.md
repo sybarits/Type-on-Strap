@@ -11,8 +11,8 @@ excerpt_separator: <!--more-->
 
 1. Introduction  
 Google에서 요구하는 데이터 처리 요수사항을 충족하기 위해 Google File System(GFS)를 설계하고 구현했습다. 성능, 확장성, 안정성, 가용성을 목표한다.
-
-2. Design Overview
+  
+2. Design Overview  
 2.1 Assumtion  
 GFS는 다음과 같은 가정을 기반으로 설계한다.
 * 일반적인 IBM호환 부품을 이용한다.
@@ -26,7 +26,7 @@ GFS는 다음과 같은 가정을 기반으로 설계한다.
 POSIX와 호환되지 않는 interface를 제공한다. 파일 생성, 삭제, 열기, 닫기, 읽기, 쓰기 작업을 지원한다. 스냅샷은 파일 또는 디렉토리 트리의 복사본을 만든다. 레코드 추가 기능을 이용하여 많은 클라이언트가 lock 없이 데이터를 하나의 파일에 동시에 추가할 수 있다.
   
 2.3 Architecture  
-하나의 master와 여러개의 chunkservers로 이루어 진다. 각각의 서버는 범용 linux 시스템이다. 파일은 고정크기의 chunk로 나뉘고 각 청크는 64비트의 청크핸들로 식별된다. 파일이 저장될 때 chunkserver는 linux file로 저장한다. chunk는 여러 chunkserver에 저장이 되며, 기본적으로 세개의 복제본을 저장한다.
+하나의 master와 여러개의 chunkservers로 이루어 진다. 각각의 서버는 범용 linux 시스템이다. 파일은 고정크기의 chunk로 나뉘고 각 청크는 64비트의 청크핸들로 식별된다. 파일이 저장될 때 chunkserver는 linux file로 저장한다. chunk는 여러 chunkserver에 저장이 되며, 기본적으로 세개의 복제본을 저장한다.  
 master는 모든 파일 시스템의 메타 데이터를 유지 관리한다. file과 chunk의 매핑 및 위치 정보를 포함한다. 클라이언트는 메타데이터 작업을 위해 master와 통신하지만 데이터 관련 통신은 chunkserver와 직접한다. 클라이언트와 chunkserver는 파일 데이터를 캐시하지 않는다. 파일이 너무 크기 때문이다.
   
 2.4 Single Master  
@@ -47,13 +47,13 @@ master는 시작시와 주기적으로 chunkserver의 상태정보를 요청하�
 2.6.3 Operation Log  
 메타 데이터의 변경사항에 대한 기록을 남긴다. 로그가 일정크기 이상을 커질때마다 상태를 점검하고 체크포인트 한다.
   
-2.7 Consistancy Model 일단 통과
+2.7 Consistancy Model 일단 통과  
 2.7.1 Guarantees by GFS  
 file namespace 변경(예: 파일 생성)은 원자적이다. namespace locking을 통해 구현 된다.
   
-3. SYSTEM INTERACTIONS
+3. SYSTEM INTERACTIONS  
 3.1 Leases and Mutation Order  
-Mutation은 chunk의 내용이나 메타 데이터를 추가 하거나 쓰는 작업을 의미한다. 마스터는 클라이언트가 mutation을 요청 할 경우 chunk 중 하나에 Lease를 부여한다. lease의 부여시간은 기본 60이며 시간을 연장하기위해 heartbeat 메시지를 통한다.
+Mutation은 chunk의 내용이나 메타 데이터를 추가 하거나 쓰는 작업을 의미한다. 마스터는 클라이언트가 mutation을 요청 할 경우 chunk 중 하나에 Lease를 부여한다. lease의 부여시간은 기본 60이며 시간을 연장하기위해 heartbeat 메시지를 통한다.  
 1.client 가 master에게 mutation 요청
 2. master는 해당 chunk가 lease되어있는지 확인하고 없으면 lease를 부여 후 chunk의 모든 복제본의 위치를 반환한다.
 3. 클라이언트는 모든 복제본에 데이터를 넣는다.
@@ -72,7 +72,7 @@ GFS는 record append라 불리는 원자적 append를 지원한다. 여러 사�
 3.4 Snapshot  
 스냅샷 작업은 파일이나 디렉토리 트리의 복사본을 거의 즉각적으로 만든다. 스냅샷 구현을 위해 표준 copy-on-write기술을 사용한다.
   
-4. MASTER OPERATION
+4. MASTER OPERATION  
 마스터는 모든 네임 스페이스 작업, 모든 시스템의 chunk 복제 관리, chunkserver의 로드를 조정등 다양한 활동을 한다.
   
 4.1 Namespace Management and Locking  
