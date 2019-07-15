@@ -8,7 +8,7 @@ excerpt_separator: <!--more-->
 자바의 가비지 컬렉터가 어떻게 돌아가는지 알아보자.  
 자바의 힙은 아래의 그림과 같이 여러 부분으로 나뉜다.
 
-![Image of java heap]({{ site.baseurl }}/assets/img/post/java_heap.png)
+![Image of java heap]({{ site.baseurl }}/assets/img/post/java_heap.PNG)
 
 먼저 Permanent 라고 써있는 부분에는 자바에서 가지고 있어야 할 메타데이터를 보관하고 있다.
 어플리케이션에서 사용되는 클래스와 메소드들의 정보들이다.
