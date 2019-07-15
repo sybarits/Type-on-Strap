@@ -65,6 +65,9 @@ minor/major garbage collection은 기본적으로 stop the world events 이다. 
 * 메모리 영역들의 각각의 객체들의 참조 상태를 스캔한다.
 * 비어있는 영역에 aging을 거친 객체들을 옮겨놓는다.
 
+![Image of java heap]({{ site.baseurl }}/assets/img/post/g1-garbage-collector-details-and-tuning-44-638.jpg)
+
+
 지금까지 대략적으로 Java의 Garbage collection에 대해 알아보았다. G1 GC는 좀 더 공부가 필요할 것 같다..
 
 출처: https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html  
