@@ -1,0 +1,81 @@
+---
+layout: post
+title: LDAP
+tags: [ldap, directory, service, active, protocol]
+excerpt_separator: <!--more-->
+---
+
+
+## LDAP
+  LDAP(Lightweight Directory Access Protocol) 경량 디렉터리 액세스 프로토콜
+  DAP(Directory Access Protocol)을 TCP/IP 위에서 디렉터리 서비스를 조회하고 수정하는 응용 프로토콜로 시작했다. 비교적 적은 대역폭을 사용한다.
+    
+  ### 디렉터리 서비스(Directory Service)
+  어떤 이름을 가지고 대상을 찾아 조회하거나 편집 할 수 있는 서비스. 사용자, 시스템, 네트워크, 서비스, 어플리케이션 등의 정보를 조회하거나 관리한다. 회사의 구성원이나 팀별 이메일 주소등, 이용자의 아이디와 패스워드와 같은 정보를 관리할 수 있다. 주로 트리구조로 정보가 정리되어있다. 이때 임직원 정보를 저장하고 있는 서버가 LDAP 서버이고, 핸드폰에 있는 어플에서 사용자 계정으로 로그인을 하고자 한다면 그것이 LDAP client 이다.
+  
+  ### 프로토콜 개요
+  - 클라이언트는 TCP/UDP 389 혹은 636(LDAPS) 포트를 이용해 DSA(Directory System Agent) 라는 LDAP서버에 연결하여 LDAP 세션을 시작한다.
+  - 클라이언트는 서버에 대한 동작 요청을 보내고, 서버는 응답을 보낸다.
+  - 대부분의 경우 클라이언트는 다음 요청을 보내기 전에 응답을 기다릴 필요가 없다.
+  - 서버는 어떤 순서로도 응답을 보낼 수 있다.
+  - 메시지 내용은 ASN.1이라는 언어로 표현된다.(추상 구문)
+  - 모든 정보는 BER(Basic Encoding Rules)라는 포맷으로 인코딩하여 주고 받는다.(전송 구문)
+  
+  ### LDAP 지원 명령
+  - StartTLS - 안전한 연결을 위해 LDAPv3 TLS(Transport Layer Security) 확장 사용
+  - Bind - 인증 및 LDAP 프로토콜 버전 지정
+  - Search - 디멕토리 항목을 검색
+  - Compare - 명명 된 항목에 지정된 속성값이 포함되어있는지 테스트
+  - Add - 새 항목 추가
+  - Delete - 항목 삭제
+  - Modify - 항목 수정
+  - ModifyDN - 항목을 이동하거나 이름을 바꿉니다.
+  - Abandon - 이전 요청 중단
+  - Unbind - 연결 닫기
+  
+  ## LDAP 구조
+  LDAP의 구조는 총 4가지 모델로 나눌 수 있다.
+  
+  ### Information 모델
+  Information 모델은 LDAP의 데이터에 대한 종류와 디렉토리에 저장되는 정보에 대한 기본단위를 정의한다. Entries, Attributes, Values 등 3가지로 정의된다.
+  - Entry란, 디렉토리 정보에 대한 기본단위이며, 각각의 Entry는 DN(Distinguish Name)으로 구분되고 Tree구조를 형성한다. 이러한 Tree형태의 구조를 DIT(Directory Infomation Tree)라고 칭한다.
+  - Attributes란, Entry를 구성하는 단위이며 각 Attribute마다 Type과 Value가 존재한다. Type은 Attribute가 포함하는 정보의 종류를 명시한다.
+  - Value란, Attribute의 실질적인 데이터를 나타낸다. Value는 Syntax와 Matching Rules와 관련있다.
+  
+  ### Naming 모델
+  - 데이터를 어떻게 구성하고 참조할 것인지에 대한 정의를 한다.
+  - Entry는 DN이라는 유일한 값을 갖고 DN의 가장 좌측에 위치한 컴포넌트를 RDN이라고 한다.
+  - RDN의 우측값(상위 Entry)이 다를경우 RDN은 동일한 값을 가질 수 있다.
+  - DN에 콤마를 사용해야 하는 경우 콤마는 DN의 구분자로 사용되기 때문에 백슬래쉬를 같이 사용한다.
+  
+  ### Functional 모델
+  - 디렉토리 트리의 데이터에 접근하는 방법을 정의하며 총 3가지 그룹으로 구성된다.
+  - 질문(Interrogation) 작업: 디렉토리 Entry를 검색(Search)/비교(Compare)하는 기능
+  - 갱신(Update) 작업: 디렉토리 엔트리의 추가(Add), 삭제(Delete), 변경(Modify) 등의 기능
+  - 인증(Authentication) 및 제어(Control) 작업: 클라이언트 확인 및 제어 기능(Bind, Unbind, Abandon)
+  
+  ### Security 모델
+  인증된 접근만 디렉토리 내 정보를 제공합니다. LDAP은 연결지향형 프로토콜로 연결이 이루어지기 위해 서버와 클라이언트 간 인증과정이 필요하다. LDAPv3에서는 SASL 방식이 제공되며 인증과정이 이루어진 후 서버는 클라이언트에게 보다 많은 권한을 부여할 수 있다.
+ 
+ 
+ 
+ 
+  ### ASN.1 
+  - Abstract Syntax Notation One. ITU-T에서 정의한 네트워크상의 데이터 교환을 정의한 프로토콜
+  - OSI7 계층 중 프레젠테이션 계층에 속하며 데이터 구조를 기술하는데 사용하는 표기법으로 특정 장치, 데이터 표현방식, 프로그래밍 언어, 하드웨어 플랫폼에 종속되지 않고, 표현뿐만 아니라 인코딩/디코딩 규칙도 규정한다.
+  - ASN.1은 단순히 표준을 정의하는 언어이며, ASN.1으로 작성된 데이터가 표준이다.
+  - ASN.1은 Octet Stream 형태로 Conversion을 하지 않으면 네트워크상에서 통신할 수 없다.
+  - Transfer Syntax로 변환시켜야 하며 Octet Stream 형태의 규격은 6가지가 있다.
+  - BER(Basic Encoding Rules), CER(Canonical Encoding Rules), DER(Distinguished Encoding Rules), XER(XML Encoding Rules), PER(Packed Encoding Rules), Generic String Rules)
+  
+  ### BER(Basic Encoding Rules)
+  - 통일된 전달 구문으로 변환하여 혼란을 방지하기위해 ISO 8825-1 및 ITU-T X.209로 제정된 표준
+  - 이기종 기계들간에 비트 수준의 호환성있는 통신을 가능하게 함
+  - BER은 전송구문에 사용되는 인코딩 구조로써, TVL(Type, Length, Value) 구조를 사용
+    
+  
+  출처: https://girlsy7.tistory.com/129
+  https://medium.com/happyprogrammer-in-jeju/ldap-%ED%94%84%ED%86%A0%ED%86%A0%EC%BD%9C-%EB%A7%9B%EB%B3%B4%EA%B8%B0-15b53c6a6f26
+  https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol
+  https://ldap.or.kr/ldap-%EC%9D%B4%EB%9E%80/
+  
