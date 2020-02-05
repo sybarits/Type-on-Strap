@@ -2,7 +2,6 @@
 layout: post
 title: Garbage Collection
 tags: [garbage, collection, java ]
-excerpt_separator: <!--more-->
 ---
 
 자바의 가비지 컬렉터가 어떻게 돌아가는지 알아보자.  
