@@ -2,7 +2,6 @@
 layout: post
 title: My First Post
 tags: [Test, first]
-excerpt_separator: <!--more-->
 ---
 
 이건 나의 첫번째 깃 허브 포스트 이다.
