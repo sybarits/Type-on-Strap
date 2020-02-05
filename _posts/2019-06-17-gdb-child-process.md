@@ -2,7 +2,6 @@
 layout: post
 title: GDB Child Process Debugging
 tags: [gdb, child, process ]
-excerpt_separator: <!--more-->
 ---
 
 GDB에서 디버깅을 하는데 fork() 이후에 원하는데로 디버깅 할 수 없었다.  
