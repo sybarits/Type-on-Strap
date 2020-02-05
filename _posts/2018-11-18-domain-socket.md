@@ -2,7 +2,6 @@
 layout: post
 title: Domain Socket 
 tags: [unix, domainsocket]
-excerpt_separator: <!--more-->
 ---
 
 # Unix Domain Socket
