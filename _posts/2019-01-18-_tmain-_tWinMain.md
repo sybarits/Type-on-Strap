@@ -2,7 +2,6 @@
 layout: post
 title: _tmain, _tWinMain
 tags: [main, wmain, _tmain ]
-excerpt_separator: <!--more-->
 ---
 
 main -> 윈도우 시스템에서 콘솔 응용프로그램 또는 DOS 응용프로그램의 엔트리 포인트  
