@@ -2,7 +2,6 @@
 layout: post
 title: The Google File System
 tags: [google, file, system, bigdata]
-excerpt_separator: <!--more-->
 ---
 
 구글 파일 시스템에 대해서 공부할 일이 있어서 요약본을 남긴다.
