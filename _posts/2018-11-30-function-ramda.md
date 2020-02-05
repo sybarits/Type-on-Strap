@@ -2,7 +2,6 @@
 layout: post
 title: 함수와 함수형 인터페이스 
 tags: [function, ramda]
-excerpt_separator: <!--more-->
 ---
 
 
