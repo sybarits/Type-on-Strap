@@ -2,7 +2,6 @@
 layout: post
 title: Thread-safe collection
 tags: [java, thread, safe, collection]
-excerpt_separator: <!--more-->
 ---
 
 자바의 컬렌션은 대부분 싱글 스레드 환경에서 사용할 수 있도록 설계 되었다. - ArrayList, HashSet, HashMap
