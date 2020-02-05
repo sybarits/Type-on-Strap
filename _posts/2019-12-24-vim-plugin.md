@@ -2,7 +2,6 @@
 layout: post
 title: vim plugin
 tags: [vim, ide, plugin, vimrc]
-excerpt_separator: <!--more-->
 ---
 
 ## Vundle Plugin 설치
