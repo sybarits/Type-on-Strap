@@ -2,7 +2,6 @@
 layout: post
 title: Git 체리픽으로 특정 커밋 하기
 tags: [git, cherry-pick ]
-excerpt_separator: <!--more-->
 ---
 
 master, new-dev 처럼 두개의 브랜치가 있다. 예를 들어 오타가 발견되었다거나 공통적으로 기능을 추가하는 경우처럼 두개의 브랜치에 공통적으로 반영해야 할 경우.  
