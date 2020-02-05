@@ -2,7 +2,6 @@
 layout: post
 title: Program and Memory
 tags: [program, memory, code, data, stack, heap]
-excerpt_separator: <!--more-->
 ---
 
 ### c 언어로 만들어진 프로그램이 실행되면 메모리로 로드되며, 메모리에 올라온 프로그램은 기계어 코드가 들어있는 코드 섹션(Code Section)과 데이터를 저장하는 데이터 섹션(Data Section)으로 나뉜다. 데이터 섹션은 전역 메모리(Global Memory), 스택 메모리(Stack Memory)와 힙 메모리(Heap Memory)로 나뉜다.
