@@ -2,7 +2,6 @@
 layout: post
 title: calling convention
 tags: [stdcall, cdecl]
-excerpt_separator: <!--more-->
 ---
 
 * calling convention(호출 규약)  
