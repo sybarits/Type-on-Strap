@@ -2,7 +2,6 @@
 layout: post
 title: Radix Tree in Redis
 tags: [Radix, Tree, Redis, Rax]
-excerpt_separator: <!--more-->
 ---
 
 ## Radix Tree
