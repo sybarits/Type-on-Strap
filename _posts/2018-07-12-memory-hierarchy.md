@@ -2,7 +2,6 @@
 layout: post
 title: Memory Hierarchy
 tags: [memory, hierachy]
-excerpt_separator: <!--more-->
 ---
 
 * 레지스터(Resister)
