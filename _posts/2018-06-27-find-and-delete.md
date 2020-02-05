@@ -2,7 +2,6 @@
 layout: post
 title: 특정 문자열을 포함하는 파일 삭제 하기 
 tags: [find, delete]
-excerpt_separator: <!--more-->
 ---
 
 특정 문자열을 포함하는 파일들을 일괄적으로 지우고 싶으면    
