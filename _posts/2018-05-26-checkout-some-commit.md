@@ -2,7 +2,6 @@
 layout: post
 title: Git 특정 커밋으로 가기, 수정 되돌리기
 tags: [git, checkout, ]
-excerpt_separator: <!--more-->
 ---
 
 작업중인 사본을 1단계 전 커밋으로 돌려준다. 숫자에 따라 해당하는 전 커밋으로 간다.
