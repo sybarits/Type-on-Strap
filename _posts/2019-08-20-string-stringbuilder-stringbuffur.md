@@ -2,7 +2,6 @@
 layout: post
 title: Java String, StringBuffer, StringBuilder
 tags: [string, stringbuffer, stringbuilder, java ]
-excerpt_separator: <!--more-->
 ---
 
 Java에서 문자열을 이용해 이것 저것을 할 경우가 있다. 성능을 내려면 String가지고는 부족하다. 그렇다.... 부족하다.
