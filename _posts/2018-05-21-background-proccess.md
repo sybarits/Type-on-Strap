@@ -2,7 +2,6 @@
 layout: post
 title: background proccess
 tags: [ssh, nohup, disown]
-excerpt_separator: <!--more-->
 ---
 
 ssh로 접속한 후 터미널을 닫으면 터미널을 통해 실행하던 작업들이 중지되는데...  
