@@ -2,7 +2,6 @@
 layout: post
 title: JAVA final keyword 
 tags: [java, final, keyword]
-excerpt_separator: <!--more-->
 ---
 
 ## final 변수
