@@ -2,7 +2,6 @@
 layout: post
 title: Compile, Build
 tags: [compile, build]
-excerpt_separator: <!--more-->
 ---
 
 * 컴파일러 (Compiler)  
