@@ -2,7 +2,6 @@
 layout: post
 title: Java Collection and Iterator
 tags: [colection, iterator, java]
-excerpt_separator: <!--more-->
 ---
 
 
