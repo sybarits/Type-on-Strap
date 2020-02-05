@@ -2,7 +2,6 @@
 layout: post
 title: Android App Release Build
 tags: [android, build, compile, zipalign, app]
-excerpt_separator: <!--more-->
 ---
 
 ## Android Studio Release Build
