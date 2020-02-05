@@ -2,7 +2,6 @@
 layout: post
 title: controller, manager, handler
 tags: [rdate, time]
-excerpt_separator: <!--more-->
 ---
 
 인터넷에서 떠도는 설명들을 짜집기 해보았다.  
