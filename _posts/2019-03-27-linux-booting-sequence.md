@@ -2,7 +2,6 @@
 layout: post
 title: linux booting sequence
 tags: [boot, booting]
-excerpt_separator: <!--more-->
 ---
 
 ## 전원 스위치 ON !
