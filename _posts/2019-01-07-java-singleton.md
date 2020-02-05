@@ -2,7 +2,6 @@
 layout: post
 title: Java Singleton
 tags: [singleton, java]
-excerpt_separator: <!--more-->
 ---
 
 
