@@ -6,9 +6,13 @@ tags: [program, memory, code, data, stack, heap]
 
 ### c 언어로 만들어진 프로그램이 실행되면 메모리로 로드되며, 메모리에 올라온 프로그램은 기계어 코드가 들어있는 코드 섹션(Code Section)과 데이터를 저장하는 데이터 섹션(Data Section)으로 나뉜다. 데이터 섹션은 전역 메모리(Global Memory), 스택 메모리(Stack Memory)와 힙 메모리(Heap Memory)로 나뉜다.
 
-- 코드 섹션에는 program code(cpu에 의해서 수행되는 기계어 명령어들)이 모여있다.
+- 코드 섹션에는 함수, 제어문, 상수 등 program code(cpu에 의해서 수행되는 기계어 명령어들)이 모여있다.
 
 - 전역 메모리에는 모든 지역 함수(Local Function) 바깥에서 선언된 변수(Global Variable)와 정적 변수(Static Variables)를 할당한다. 메인 함수는 운영체제가 프로그램 실행을 위해 최초로 호출하는 일종의 지역 함수로 구분된다. 프로그램 시작과 동시에 할당되고, 프로그램이 종료되어야만 메모리에서 소멸된다.
+
+- 전역 메모리 영역은 data 영역과 bss 영역으로 나뉜다. 초기화가 된 변수는 data 영역에 초기화가 안된 변수는 bss 영역에 저장된다. 
+
+- 코드역역과 데이터 영역은 compile time에 결정이 되어 프로그램 바이너리에 들어간다.
 ```
 int start = 0;//global variable
 void main()
@@ -38,13 +42,21 @@ void main()
 
 주소 | 메모리공간
 -----------------------|------------------------
-높은 번지(High Address) | 힙(Heap)
+높은 번지(High Address) | 
+         ↓             | 아래로 갈수록 주소값 감소
+                       | 힙(Heap)
                        | 미사용 공간(Available)
                        | 스택(Stack)
                        | 전역 변수(Global Variables)
-낮은 번지(Low Address)  | 기계어 코드(Machine Code) 
+                       | bss 영역
+                       | data 영역
+         ↑             | 기계어 코드(Machine Code) 
+                       | 위로 갈수록 주소값 증가
+낮은 번지(Low Address)  | 위로 갈수록 주소값 증가
   
-미사용 공간은 스택의 정적으로 할당, 힙의 동적 할당에 따라 줄어든다. 이말의 의미는 처음부터 모든 스택과 힙 공간이 할당되어 있는 것이 아니라 동적이든 정적이든 함수의 호출로 인하여 메모리 공간이 필요한 시기에 할당된다는 의미이다.
+- 미사용 공간은 스택의 정적으로 할당, 힙의 동적 할당에 따라 줄어든다. 이말의 의미는 처음부터 모든 스택과 힙 공간이 할당되어 있는 것이 아니라 동적이든 정적이든 함수의 호출로 인하여 메모리 공간이 필요한 시기에 할당된다는 의미이다.
+
+- 상세 내용은 리눅스와 윈도우간의 차이가 있다.
   
   
   출처: https://clarus.tistory.com/entry/%EC%BD%94%EB%93%9C%EC%84%B9%EC%85%98-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%84%B9%EC%85%98
