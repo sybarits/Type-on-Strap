@@ -34,7 +34,7 @@ xhr.send();
 ```
 
 ### responseType
-XMLHttpRequest는 어떠한 형식의 데이터도 전송이 가능하다고 하였다. 위의 예제를 통해 데이터를 받아 확인 할 수 있지만, 처리에 난감한 부분이 있다. XHR.responseType 지정을 통해 파일을 받고, mimeType을 설정해주는 방법을 사용할 수 있다. responseType은  "text", "arraybuffer", "blob", or "document" 가 가능하고, 아무 설정을 해주지 않으면 "text"로 응답을 받는다.
+XMLHttpRequest는 어떠한 형식의 데이터도 전송이 가능하다고 하였다. 위의 예제를 통해 데이터를 받아 확인 할 수 있지만, 처리에 난감한 부분이 있다. 대신 XHR.responseType 지정을 통해 파일을 받고, mimeType을 설정해주는 방법을 사용할 수 있다. responseType은  "text", "arraybuffer", "blob", or "document" 가 가능하고, 아무 설정을 해주지 않으면 "text"로 응답을 받는다.
 
 ```javascript
 var xhr = new XMLHttpRequest();
