@@ -15,7 +15,7 @@ theme_settings:
 
   # Header and footer text
   header_text: > #two or three lines to describe your site
-     <p>Sybarits is the streets of pleasure seekers in Greece around the 5th century B.C.</p>
+     <p>Sybarits is the streets of pleasure seekers <br/> in Greece around the 5th century B.C.</p>
   header_text_feature_image: assets/img/pexels/triangular.jpeg
   footer_text: >
    Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
