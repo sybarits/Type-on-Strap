@@ -12,6 +12,7 @@ react와 node.js를 이용해 간단한 웹 어플리케이션을 만들어보�
 node -v
 npm -v
 ```
+이 글은 node 10.21.0, npm 5.8.0 기준으로 작성하였다.
 
 ## React 사용 준비
 npm 버전이 5.2 이상일 경우 아래 명령어를 통해 react를 사용할 수 있도록 준비한다. 프론트엔드에서 백엔드로 요청을 보낼때 사용하기 위해 axios를 설치한다.
@@ -100,7 +101,7 @@ npm 명령어를 실행해 프록시 패키지를 설치한다.
 ```
 npm install http-proxy-middleware --save
 ```
-src 폴더 아래에 setupProxy.js 파일을 만들고 아래와 같이 작성하고 v1 경로로 요청하면 30002 포트로 요청이 간다. 예를 들어 axios를 이용해 프론트엔드에서 '/v1/api/apple'로 요청을 보내면 'http://localhost:30002/api/apple' 로 요청이 간다.(pathRewrite 설정 때문) 프록시 설정에 대한 자세한 내용은 https://www.npmjs.com/package/http-proxy-middleware 사이트를 참고한다.
+http-proxy-middleware 1.0.6 버전기준으로 src 폴더 아래에 setupProxy.js 파일을 만들고 아래와 같이 작성한다. /v1 경로로 요청하면 30002 포트로 요청이 간다. 예를 들어 axios를 이용해 프론트엔드에서 '/v1/api/apple'로 요청을 보내면 'http://localhost:30002/api/apple' 로 요청이 간다.(pathRewrite 설정 때문) 프록시 설정에 대한 자세한 내용은 https://www.npmjs.com/package/http-proxy-middleware 사이트를 참고한다.
 
 ```javascript
 const { createProxyMiddleware } = require('http-proxy-middleware');
@@ -132,7 +133,7 @@ npm install npm-run-all --save
     이하 생략
 }
 ```
-npm start 명령어를 실행하면 start:client에 적혀있는 react 실행 명령어가 실행되고 start:server에 적혀있는 서버 실행 명령어가 실행된다. 
+npm start 명령어를 실행하면 start:client에 적혀있는 react 실행 명령어가 실행되고 start:server에 적혀있는 서버 실행 명령어가 실행된다. 개발할때는 따로 실행하는 것이 편할수도 있다.
 
 
 출처: https://singa-korean.tistory.com/46  
