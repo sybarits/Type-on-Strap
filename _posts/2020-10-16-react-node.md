@@ -143,3 +143,4 @@ npm start 명령어를 실행하면 start:client에 적혀있는 react 실행 �
 출처: https://singa-korean.tistory.com/46  
 https://ssungkang.tistory.com/entry/React-React-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-create-react-app  
 https://www.npmjs.com/package/http-proxy-middleware  
+https://eunvanz.github.io/react/2018/06/05/React-create-react-app%EC%9C%BC%EB%A1%9C-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0/  
