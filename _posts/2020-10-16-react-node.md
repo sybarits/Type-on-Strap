@@ -15,10 +15,14 @@ npm -v
 이 글은 node 10.21.0, npm 5.8.0 기준으로 작성하였다.
 
 ## React 사용 준비
-npm 버전이 5.2 이상일 경우 아래 명령어를 통해 react를 사용할 수 있도록 준비한다. 프론트엔드에서 백엔드로 요청을 보낼때 사용하기 위해 axios를 설치한다.
+npm 버전이 5.2 이상일 경우 아래 명령어를 통해 react를 사용할 수 있도록 준비한다.
 
 ```
-npx install -g create-react-app
+npx install create-react-app
+create-react-app {project name}
+```
+이하 작업은 프로젝트 폴더 아래에서 진행한다. 프론트엔드에서 백엔드로 요청을 보낼때 사용하기 위해 axios를 설치한다.
+```
 npm install axios --save
 ```
 
