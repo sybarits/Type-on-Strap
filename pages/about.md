@@ -8,7 +8,7 @@ tags: [About, sybarits]
 
 Sybarits is the streets of pleasure seekers in Greece around the 5th century B.C..
 
-This is the name of nest for ants that is introduced in "les fourmis" writen by Bernard Werber.
+This word is introduced in "les fourmis" writen by Bernard Werber.
 
 
 
