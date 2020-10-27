@@ -8,7 +8,7 @@ tags: [About, sybarits]
 
 Sybarits is the streets of pleasure seekers in Greece around the 5th century B.C..
 
-This word is introduced in "les fourmis" writen by Bernard Werber.
+I found this word in "les fourmis" writen by Bernard Werber.
 
 
 
