@@ -6,7 +6,7 @@ tags: [spring, security, rest, api]
 
 Spring Security를 이용해 REST API를 보다 안전하게 사용하는 법에대해 알아본다.  
 서버는 적절한 절차를 거쳐 클라이언트에게 토큰을 발급하고, 클라이언트는 발급 받은 토큰을 이용해 REAT API를 호출할때 사용한다.  
-구글링을 통해 얻은 내용을 짜집기해 만들어보았다. 아래 출처에서 밝혔듯이 happydaddy님과 victolee님의 블로그를 참고했다. 이글을 빌어 감사하다는 말을 전한다. 까먹기 전에 내용정리해보자.
+구글링을 통해 얻은 내용을 짜집기해 만들어보았다. 아래 출처에서 밝혔듯이 happydaddy님과 victolee님의 블로그를 주로 참고했다. 물론 이분들은 여기에 자신들의 글이 참고되었는지 알지 못한다... 이글을 빌어 감사하다는 말을 전한다. 까먹기 전에 내용정리해보자.
 spring security를 적용하면서 spring framework에 좀 더 집중해서 공부할 필요성을 느꼈다.  
 
 ## 의존성 설정
@@ -26,7 +26,8 @@ Spring Framework에서 클라이언트의 요청은 받으면 서버의 컨트�
 
 ### SecurityConfiguration
 @Configuration 을 추가하여 설정 클래스를 추가 한다. 이 클래스를 통해 등록할 필터를 설정한다.
-* 지금보니 UsernamePasswordAuthenticationFilter를 나는 사용하지 않는다. 이 부분에 대해서 좀더 조사해보아야겠다.
+* 지금보니 UsernamePasswordAuthenticationFilter를 나는 사용하지 않는다. 이 부분에 대해서 좀 더 조사해보아야겠다.
+
 ```java
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -70,6 +71,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 ### JwtAuthenticationFilter
 발급 받은 토큰을 클라이언트가 요청에 포함해 보내면 이를 확인하는 필터를 구현한다. 토큰의 유효성을 확인하는 과정이 이 필터에서 이루어진다.
+
 ```java
 import java.io.IOException;
 
@@ -186,11 +188,12 @@ public class JwtTokenProvider {
 }
 ```
 
-## 토큰 발급
+## 회원 가입과 토큰 발급
 위에서 언급한 security 설정을 살펴보면 signin과 signup을 제외한 요청은 불가하도록 되어있다. 클라이언트가 적절한 절차를 거쳐 토큰을 발급받으면 서버는 모든 요청에 대한 응답을 해준다. 회원가입(signup)과 로그인(signin) 기능을 보자
 
 ### SignController
 먼저 컨트롤러 작성이다. 로그인과 회원가입을 위한 엔트리 포인트를 작성한다.
+
 ```java
 import java.util.Arrays;
 import java.util.List;
@@ -266,6 +269,7 @@ public class SignController {
 
 
 ### SignVO
+로그인이 성공하면 토큰을 담아 보내거나, 실패하면 메세지를 담아 보내기 위한 클래스다.
 
 ```java
 import lombok.Data;
@@ -284,9 +288,126 @@ public class SignVO {
 }
 ```
 
-앗 시간이 없다. 나중에 마저 작성해야 겠다.
+### UserVO
+유저 관련 정보를 담아 처리하는 클래스. UserDetails를 상속해서 구현한다. is로 시작하는 메소드들은 사용하지 않기 때문에 패스한다.
 
-to be continue...
+```java
+import java.util.ArrayList;
+import java.util.Collection;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import lombok.Data;
+import lombok.ToString;
+
+@Data
+@ToString
+public class UserVO implements UserDetails {
+
+    /**
+     *  This VO is for security.
+     */
+    private static final long serialVersionUID = 1L;
+
+    private String id;
+    private String name;
+    private String password;
+    private String roles;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        ArrayList<GrantedAuthority> auth = new ArrayList<GrantedAuthority>();
+        auth.add(new SimpleGrantedAuthority(roles));
+        return auth;
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return name;
+    }
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+    
+}
+```
+
+### CustomUserDetailService
+컨트롤러에서 호출하는 DB 조회 서비스다. 회원 가입을 하거나 로그인을 위한 기능이다.
+
+```java
+import com.tmax.errorreport.VO.UserVO;
+import com.tmax.errorreport.mybatis.mapper.UserMapper;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+@Service
+public class CustomUserDetailService implements UserDetailsService {
+
+    @Autowired
+    UserMapper userMapper;
+
+    @Override
+    public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
+        return userMapper.findById(id);
+    }
+
+    public UserDetails findByName(String name) {
+        return userMapper.findByName(name);
+    }
+
+    public int signInUser(UserVO user) {
+        if (userMapper.findByName(user.getName()) == null) {
+            return userMapper.insertUser(user);
+        } else {
+            return -1;
+        }
+    }
+
+    public int deleteUser(String name) {
+        return userMapper.deleteUser(name);
+    }
+    
+}
+```
+
+## Client
+클라이언트는 회원가입을 통해 권한이 주어진 아이디를 발급 받아야 한다. 회원가입이 된 아이디를 이용해 로그인을 시도할 경우 서버는 토큰을 발급한다. 클라이언트는 발급받은 토큰을 헤더에 담아 REAT API를 호출한다. 적절한 토큰이 요청 헤더에 담겨있지 않다면 API호출을 할 수 없다구!
+
 
 출처: https://daddyprogrammer.org/post/636/springboot2-springsecurity-authentication-authorization/    
 https://victorydntmd.tistory.com/328  
