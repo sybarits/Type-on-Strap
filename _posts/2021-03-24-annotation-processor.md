@@ -207,4 +207,5 @@ public class ServiceHandlerProcessor extends AbstractProcessor {
 빌드한 결과를 실제 적용할 프로젝트로 가져와서 의존성을 위처럼 추가한다. 클래스에 어노테이션을 적용하고 빌드하면 빌드 결과물에 소스가 생성되고 컴파일된 클래스가 추가되어있는 것을 확인할 수 있다.
 
 출처: https://mysend12.medium.com/java-annotation-1-ee04963c7d73    
+https://mysend12.medium.com/java-annotation-processor-1-7f95693748ef  
 https://www.charlezz.com/?p=1167  
