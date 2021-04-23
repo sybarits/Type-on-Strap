@@ -71,7 +71,7 @@ public class ReceiveLogsDirect {
 로그는 받는 쪽도 역시 rabbitmq와 연결을 맺고 exchangeDeclare를 이용해 어떤 exchange에 연결할 것인지 설정 한다. queueBind를 이용해 어떤 queue에 어떤 routing key로 bind 할 지 설정한 후 메시지를 기다린다.
 
 ## RabbitMQ Topic
-좀 더 공부가 필요하다..
+메시지를 받는 쪽에서 토픽을 aaa.*.ccc 혹은 aaa.# 이런식으로 설정하면, 메세지를 보낼 때 aaa.bbb.ccc 혹은 aaa.ddd.ccc 라고 보낼때 메시지를 받는다. 토픽 설정하는 법을 반대로 알 고있었는데... 반대로 설정하는 법은 없는가? (2021년 4월 23일 잘못 알고 있던 부분을 수정 한다. 메시지 보낸는 쪽과 받는 쪽 routing key 설정방법을 반대로 알고 있던 덕분에 삽질을...) 
 
 ## 기타
 다른 예제는 출처 사이트를 직접 가서 확인 해보자 차근차근 보다보면 어렵지 않게 사용할 수 있을 것이다.
