@@ -71,7 +71,7 @@ public class ReceiveLogsDirect {
 로그는 받는 쪽도 역시 rabbitmq와 연결을 맺고 exchangeDeclare를 이용해 어떤 exchange에 연결할 것인지 설정 한다. queueBind를 이용해 어떤 queue에 어떤 routing key로 bind 할 지 설정한 후 메시지를 기다린다.
 
 ## RabbitMQ Topic
-RabbitMQ에서 "topic"은 exchangeDeclare 할 때 exchange type 설정 값 중 하나로, direct와 비슷하지만 routing key를 서버에서 메시지를 보낼 때 패턴을 주어 메시지를 선택적으로 줄 수 있도록 하는 기능이다. 예제코드는 거의 유사하며, routing key를 aa.bb.cc 이런식으로 주고 메시지를 보내는 쪽에서는 aa.*.cc 혹은 aa.# 이런식으로 보낼 수 있다. *은 .을 기준으로 단어 하나를 대체하는 와일드 카드 문자로 쓰인다. #은 0개 이상의 단어를 대체하는 와일드 카드 문자로 사용한다. 이런 방법을 이용해 패턴을 사용하여 topic별 메시지를 전달 할 수 있다.
+좀 더 공부가 필요하다..
 
 ## 기타
 다른 예제는 출처 사이트를 직접 가서 확인 해보자 차근차근 보다보면 어렵지 않게 사용할 수 있을 것이다.
