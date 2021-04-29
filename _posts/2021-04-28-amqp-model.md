@@ -1,6 +1,6 @@
 ---
 layout: post
-title: RabbitMQ Routing, Topic
+title: RabbitMQ Basic Model
 tags: [mq, rabbitmq, queue, brocker, amqp, model]
 ---
 
