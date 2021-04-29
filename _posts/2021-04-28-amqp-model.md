@@ -4,7 +4,7 @@ title: RabbitMQ Basic Model
 tags: [mq, rabbitmq, queue, brocker, amqp, model]
 ---
 
-## AMQP 90-9-1 Model Explain
+## AMQP 0-9-1 Model Explain
 RabbitMQ는 AMQP의 구현체로 본문은 AMQP 모델을 설명하고 있는 https://www.rabbitmq.com/tutorials/amqp-concepts.html 의 내용을 요약함
 
 # AMQP 0-9-1
