@@ -30,7 +30,11 @@ sudo systemctl status docker
 ```
 sudo usermod -aG docker $USER
 ```
-이 유저로 도커를 실행 할 때는 sudo 명령어를 추가한다.  
+이 유저로 도커를 실행 할 때는 sudo 명령어를 추가한다.
+```
+sudo su - $USER
+```
+이렇게 실행 하면 sudo를 추가하지 않아도 된다.  
   
 이제 시작이다.
   
