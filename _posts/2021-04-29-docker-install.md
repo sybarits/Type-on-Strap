@@ -34,7 +34,15 @@ sudo usermod -aG docker $USER
 ```
 sudo su - $USER
 ```
-이렇게 실행 하면 sudo를 추가하지 않아도 된다.  
+이렇게 실행 하면 sudo를 추가하지 않아도 된다.
+
+## Docker-Compose 설치
+도커 컴포즈는 컨테이너 여러개를 실행 할 수 있도록 해주는 툴이다. 설치는 간단하다
+```
+sudo curl -L https://github.com/docker/compose/releases/download/1.25.0-rc2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+```
+프로그램을 설치하고 권한 설정을 해준다.
   
 이제 시작이다.
   
