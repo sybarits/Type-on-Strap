@@ -4,8 +4,9 @@ title: CSR
 tags: [csr, ssl, tls, certificate, key]
 ---
 
-  CSR(Certificate Signing Request)에 대해서 알아본다.
+  CSR(Certificate Signing Request)에 대해서 알아본다.  
   
+
 ### 인증서(Certificate)란
 public key는 모두에게 공개하는 키다.public key를 사용하는 입장에서 그조에서 보낸 키가 정말 맞는지 알 수 없기 대문에 이에 대한 확인을 제 3자가 대신 해준다. 이 제 3자가 인증기관(CA)라고 한다. 인증기관에서는 소유자 이름, 이메일, 인증서 용도, 유효기간, 위치 등을 포함, public key 와 public key의 해시값으로 인증서를 생성한다. 다시 말하면 개인키 소유자의 공개키와 인증기관의 개인키로 전자서명한 데이터를 인증서라 한다. 모든 인증서는 발급 기관이 있다. 최상위 인증기관은 Root CA라 부른다. 최상위 인증기관의 인증서는 자신의 개인키로 스스로 인증서에 서명하여 인증서를 만든다. 이를 Selt Signed Certificate라고 부른다.
 
