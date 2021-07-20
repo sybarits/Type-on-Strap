@@ -117,4 +117,5 @@ bats 명령어 실행을 한다.
   
   
 출처: https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions  
-https://zzsza.github.io/development/2020/06/06/github-action/
+https://lab.github.com/githubtraining/devops-with-github-actions  
+https://zzsza.github.io/development/2020/06/06/github-action/  
